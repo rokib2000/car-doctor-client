@@ -1,3 +1,5 @@
+import Checkout from "../../Pages/Checkout/Checkout";
+
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../../Layouts/Main/Main");
 const { default: Home } = require("../../Pages/Home/Home/Home");
@@ -20,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp></SignUp>,
+      },
+      {
+        path: "checkout/:id",
+        element: <Checkout></Checkout>,
       },
     ],
   },
