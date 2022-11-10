@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import img from "../../assets/images/login/login.svg";
 import { AuthContext } from "../../contexts/AuthProvider";
 
-const login = () => {
-  const { loginEmailPassword, user } = useContext(AuthContext);
+const Login = () => {
+  const { logIn, user } = useContext(AuthContext);
 
   console.log(user);
 
@@ -17,14 +17,14 @@ const login = () => {
 
     // console.log(email, password);
 
-    loginEmailPassword(email, password)
+    logIn(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
-        // if (user) {
-        //   alert("signup successfully!");
-        //   form.reset();
-        // }
+        if (user) {
+          alert("login successfully!");
+          form.reset();
+        }
       })
       .catch((err) => console.error(err));
   };
@@ -71,4 +71,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;
