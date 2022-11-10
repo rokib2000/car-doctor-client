@@ -4,6 +4,8 @@ import SignUp from "../../Pages/SignUp/SignUp";
 import Home from "../../Pages/Home/Home/Home";
 import Main from "../../Layouts/Main/Main";
 import { createBrowserRouter } from "react-router-dom";
+import Orders from "../../Pages/Orders/Orders";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 // const { createBrowserRouter } = require("react-router-dom");
 // const { default: Main } = require("../../Layouts/Main/Main");
@@ -29,8 +31,17 @@ const router = createBrowserRouter([
         element: <SignUp></SignUp>,
       },
       {
-        path: "checkout/:id",
+        path: "/checkout/:id",
         element: <Checkout></Checkout>,
+        loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
+      },
+      {
+        path: "/orders",
+        element: (
+          <PrivateRoute>
+            <Orders></Orders>
+          </PrivateRoute>
+        ),
       },
     ],
   },
