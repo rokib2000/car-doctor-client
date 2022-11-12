@@ -31,7 +31,7 @@ const Login = () => {
         };
         // get jwt
 
-        fetch("http://localhost:5000/jwt", {
+        fetch("https://car-doctor-server-pearl.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",

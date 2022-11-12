@@ -9,10 +9,10 @@ const Orders = () => {
   const { user, logOut } = useContext(AuthContext);
   const [orders, setOrders] = useState([]);
 
-  // const url = `http://localhost:5000/orders?email=${user?.email}`;
+  // const url = `https://car-doctor-server-pearl.vercel.app/orders?email=${user?.email}`;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/orders?email=${user?.email}`, {
+    fetch(`https://car-doctor-server-pearl.vercel.app/orders?email=${user?.email}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("carToken")}`,
       },
@@ -34,7 +34,7 @@ const Orders = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure? you want to delete");
     if (proceed) {
-      fetch(`http://localhost:5000/orders/${id}`, {
+      fetch(`https://car-doctor-server-pearl.vercel.app/orders/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -50,7 +50,7 @@ const Orders = () => {
   };
 
   const handleUpdate = (id) => {
-    fetch(`http://localhost:5000/orders/${id}`, {
+    fetch(`https://car-doctor-server-pearl.vercel.app/orders/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

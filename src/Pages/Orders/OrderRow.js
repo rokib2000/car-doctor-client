@@ -8,7 +8,7 @@ const OrderRow = (props) => {
   const [orderService, setOrderService] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/services/${service}`)
+    fetch(`https://car-doctor-server-pearl.vercel.app/services/${service}`)
       .then((res) => res.json())
       .then((data) => setOrderService(data))
       .catch((er) => console.error(er));
